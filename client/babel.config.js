@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
   presets: [
     [
@@ -11,7 +13,7 @@ module.exports = {
     [
       '@babel/preset-react',
       {
-        development: true,
+        development: isDev,
       },
     ],
   ],

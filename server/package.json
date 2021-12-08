@@ -6,6 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "echo noop",
+    "build:prod": "echo noop",
     "prestart": "npm-run-all prestart:clean prestart:init",
     "start": "babel-node --experimental-wasm-threads src/index.js",
     "prestart:clean": "rimraf ../upload",
