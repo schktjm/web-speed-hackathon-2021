@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
       - run: sudo apt install libvips-dev
+      - uses: actions/setup-node@v1
         with:
           node-version: 16
       - run: yarn install && yarn global add @lhci/cli@0.8.x
