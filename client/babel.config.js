@@ -1,3 +1,5 @@
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
   presets: [
     [
@@ -5,13 +7,13 @@ module.exports = {
       {
         corejs: '3',
         modules: 'commonjs',
-        useBuiltIns: false,
+        useBuiltIns: 'usage',
       },
     ],
     [
       '@babel/preset-react',
       {
-        development: true,
+        development: isDev,
       },
     ],
   ],
