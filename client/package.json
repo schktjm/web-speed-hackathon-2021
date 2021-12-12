@@ -14,6 +14,7 @@
     "buffer": "6.0.3",
     "classnames": "2.3.1",
     "core-js": "3.19.1",
+    "css-minimizer-webpack-plugin": "^3.2.0",
     "fast-average-color": "7.0.1",
     "gifler": "github:themadcreator/gifler#v0.3.0",
     "image-size": "1.0.0",
@@ -29,6 +30,7 @@
     "react-helmet": "6.1.0",
     "react-router-dom": "6.0.2",
     "regenerator-runtime": "0.13.9",
+    "save": "^2.4.0",
     "standardized-audio-context": "25.3.15",
     "tailwindcss": "2.2.19",
     "wicg-inert": "3.1.1"
