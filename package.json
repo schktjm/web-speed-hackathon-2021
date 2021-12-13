@@ -2,7 +2,7 @@
   "private": true,
   "license": "MPL-2.0",
   "scripts": {
-    "build": "yarn workspaces run build",
+    "build": "yarn workspaces run build:prod",
     "build:prod": "yarn workspaces run build:prod",
     "start": "yarn workspace @web-speed-hackathon-2021/server start",
     "watch": "yarn workspace @web-speed-hackathon-2021/client develop"
