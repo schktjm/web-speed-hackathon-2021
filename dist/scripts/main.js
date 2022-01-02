@@ -533,7 +533,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /** @note 競技用サーバーで参照します。可能な限りコード内に含めてください */
 window.__BUILD_INFO__ = {
-  BUILD_DATE: "2021-12-12T09:46:33.241Z",
+  BUILD_DATE: "2022-01-02T16:10:04.419Z",
   COMMIT_HASH: ""
 };
 
