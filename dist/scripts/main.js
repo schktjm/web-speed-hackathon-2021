@@ -533,7 +533,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /** @note 競技用サーバーで参照します。可能な限りコード内に含めてください */
 window.__BUILD_INFO__ = {
-  BUILD_DATE: "2022-01-03T04:26:48.175Z",
+  BUILD_DATE: "2022-01-03T05:42:01.608Z",
   COMMIT_HASH: ""
 };
 
@@ -1566,16 +1566,16 @@ var InfiniteScroll = function InfiniteScroll(_ref) {
     prevReachedRef.current = false;
     handler();
     document.addEventListener('wheel', handler, {
-      passive: false
+      passive: true
     });
     document.addEventListener('touchmove', handler, {
-      passive: false
+      passive: true
     });
     document.addEventListener('resize', handler, {
-      passive: false
+      passive: true
     });
     document.addEventListener('scroll', handler, {
-      passive: false
+      passive: true
     });
     return function () {
       document.removeEventListener('wheel', handler);
