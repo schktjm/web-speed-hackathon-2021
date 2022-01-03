@@ -533,7 +533,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /** @note 競技用サーバーで参照します。可能な限りコード内に含めてください */
 window.__BUILD_INFO__ = {
-  BUILD_DATE: "2022-01-03T09:38:34.262Z",
+  BUILD_DATE: "2022-01-03T10:03:47.344Z",
   COMMIT_HASH: ""
 };
 
@@ -5310,9 +5310,7 @@ var _AppContainer = __webpack_require__(71057);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-window.addEventListener('load', function () {
-  _reactDom["default"].render( /*#__PURE__*/_react["default"].createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react["default"].createElement(_AppContainer.AppContainer, null)), document.getElementById('app'));
-});
+_reactDom["default"].render( /*#__PURE__*/_react["default"].createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react["default"].createElement(_AppContainer.AppContainer, null)), document.getElementById('app'));
 
 /***/ }),
 
