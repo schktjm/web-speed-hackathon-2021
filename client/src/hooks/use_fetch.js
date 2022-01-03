@@ -32,7 +32,6 @@ export function useFetch(apiPath, fetcher) {
 
     promise.then((data) => {
       setResult((cur) => ({
-        ...cur,
         data,
         isLoading: false,
       }));
@@ -40,7 +39,6 @@ export function useFetch(apiPath, fetcher) {
 
     promise.catch((error) => {
       setResult((cur) => ({
-        ...cur,
         error,
         isLoading: false,
       }));
