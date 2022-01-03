@@ -533,7 +533,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /** @note 競技用サーバーで参照します。可能な限りコード内に含めてください */
 window.__BUILD_INFO__ = {
-  BUILD_DATE: "2022-01-03T05:42:01.608Z",
+  BUILD_DATE: "2022-01-03T07:31:57.551Z",
   COMMIT_HASH: ""
 };
 
@@ -4087,11 +4087,16 @@ var AppContainer = function AppContainer() {
 
   var _useFetch = (0, _use_fetch.useFetch)('/api/v1/me', _fetchers.fetchJSON),
       data = _useFetch.data,
+      error = _useFetch.error,
       isLoading = _useFetch.isLoading;
 
   _react["default"].useEffect(function () {
-    setActiveUser(data);
-  }, [data]);
+    if (error) {
+      setActiveUser(null);
+    } else {
+      setActiveUser(data);
+    }
+  }, [data, error]);
 
   var _React$useState3 = _react["default"].useState('none'),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
@@ -5028,20 +5033,6 @@ __webpack_require__(52077);
 
 __webpack_require__(99785);
 
-__webpack_require__(92571);
-
-__webpack_require__(98010);
-
-__webpack_require__(20252);
-
-__webpack_require__(95374);
-
-__webpack_require__(55849);
-
-__webpack_require__(14009);
-
-__webpack_require__(12699);
-
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
@@ -5052,12 +5043,6 @@ __webpack_require__(23023);
 var _react = _interopRequireDefault(__webpack_require__(27378));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -5106,18 +5091,18 @@ function useFetch(apiPath, fetcher) {
     var promise = fetcher(apiPath);
     promise.then(function (data) {
       setResult(function (cur) {
-        return _objectSpread(_objectSpread({}, cur), {}, {
+        return {
           data: data,
           isLoading: false
-        });
+        };
       });
     });
     promise["catch"](function (error) {
       setResult(function (cur) {
-        return _objectSpread(_objectSpread({}, cur), {}, {
+        return {
           error: error,
           isLoading: false
-        });
+        };
       });
     });
   }, [apiPath, fetcher]);
@@ -5382,6 +5367,10 @@ function _fetchBinary() {
           case 0:
             _context.next = 2;
             return fetch(url).then(function (res) {
+              if (!res.ok) {
+                throw res;
+              }
+
               return res.arrayBuffer();
             });
 
@@ -5421,6 +5410,10 @@ function _fetchJSON() {
             return fetch(url, {
               credentials: 'include'
             }).then(function (res) {
+              if (!res.ok) {
+                throw res;
+              }
+
               return res.json();
             });
 
@@ -5464,6 +5457,10 @@ function _sendFile() {
                 'Content-Type': 'application/octet-stream'
               }
             }).then(function (res) {
+              if (!res.ok) {
+                throw res;
+              }
+
               return res.json();
             });
 
@@ -5503,6 +5500,12 @@ function _sendJSON() {
                 'Content-Encoding': 'gzip',
                 'Content-Type': 'application/json'
               }
+            }).then(function (res) {
+              if (!res.ok) {
+                throw res;
+              }
+
+              return res;
             });
 
           case 5:
