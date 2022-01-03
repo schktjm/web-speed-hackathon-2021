@@ -21,10 +21,14 @@ const AppContainer = () => {
   }, [pathname]);
 
   const [activeUser, setActiveUser] = React.useState(null);
-  const { data, isLoading } = useFetch('/api/v1/me', fetchJSON);
+  const { data, error, isLoading } = useFetch('/api/v1/me', fetchJSON);
   React.useEffect(() => {
-    setActiveUser(data);
-  }, [data]);
+    if (error) {
+      setActiveUser(null);
+    } else {
+      setActiveUser(data);
+    }
+  }, [data, error]);
 
   const [modalType, setModalType] = React.useState('none');
   const handleRequestOpenAuthModal = React.useCallback(() => setModalType('auth'), []);
