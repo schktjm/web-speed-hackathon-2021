@@ -533,7 +533,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /** @note 競技用サーバーで参照します。可能な限りコード内に含めてください */
 window.__BUILD_INFO__ = {
-  BUILD_DATE: "2022-01-03T03:51:32.179Z",
+  BUILD_DATE: "2022-01-03T04:14:45.562Z",
   COMMIT_HASH: ""
 };
 
@@ -1528,14 +1528,6 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.InfiniteScroll = void 0;
 
-__webpack_require__(86000);
-
-__webpack_require__(63238);
-
-__webpack_require__(15610);
-
-__webpack_require__(17460);
-
 var _react = _interopRequireDefault(__webpack_require__(27378));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -1559,9 +1551,10 @@ var InfiniteScroll = function InfiniteScroll(_ref) {
   _react["default"].useEffect(function () {
     var handler = function handler() {
       // 念の為 2の18乗 回、最下部かどうかを確認する
-      var hasReached = Array.from(Array(Math.pow(2, 18)), function () {
-        return window.innerHeight + Math.ceil(window.scrollY) >= document.body.offsetHeight;
-      }).every(Boolean); // 画面最下部にスクロールしたタイミングで、登録したハンドラを呼び出す
+      var hasReached = window.innerHeight + Math.ceil(window.scrollY) >= document.body.offsetHeight; // Array.from(Array(2 ** 18), () => {
+      //   return window.innerHeight + Math.ceil(window.scrollY) >= document.body.offsetHeight;
+      // }).every(Boolean);
+      // 画面最下部にスクロールしたタイミングで、登録したハンドラを呼び出す
 
       if (hasReached && !prevReachedRef.current) {
         // アイテムがないときは追加で読み込まない
@@ -5437,10 +5430,9 @@ function _fetchJSON() {
 
           case 2:
             result = _context2.sent;
-            console.log(result);
             return _context2.abrupt("return", result);
 
-          case 5:
+          case 4:
           case "end":
             return _context2.stop();
         }
